@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/* Reference script accent; the Typekit fonts load from the document head. */
+
+@font-face {
+  font-family: "printed-moments";
+  src: url("https://static1.squarespace.com/static/670423e106da6c036366fd10/t/67042f1ac94bbb494649b8e4/1728327450432/printedmoments-webfont.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+}
+
+@theme {
+  --font-sans: "Mulish", "Avenir Next", Avenir, sans-serif;
+  --font-label: "gravesend-sans", "Avenir Next", Avenir, sans-serif;
+  --font-serif: "beaufort-pro", "Bodoni MT", Didot, Georgia, serif;
+  --font-accent: "printed-moments", "Segoe Script", cursive;
+  --color-primary: #49364e;
+  --color-secondary: #e7d7db;
+  --color-accent: #895a74;
+  --color-accent-soft: #e5cbd3;
+  --color-cream: #f7f2ef;
+  --color-paper: #fcfaf8;
+  --color-sand: #f0e8e5;
+  --color-ink: #322a34;
+  --color-forest: #49364e;
+  --color-clay: #895a74;
+  --color-muted: #5a535a;
+  --color-line: #ddd3d9;
+}
+
+:root {
+  --section-gutter: clamp(1.25rem, 6vw, 2.5rem);
+  --section-padding: 4rem;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --section-gutter: 8.8vw;
+    --section-padding: 7rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  :root {
+    --section-gutter: min(8.8vw, 11rem);
+  }
+}
+
+@layer components {
+  .section-gutter { padding-inline: var(--section-gutter); }
+  .section-padding { padding-block: var(--section-padding); }
+}
+
+* { box-sizing: border-box; }
+html { overflow-x: clip; scroll-behavior: smooth; }
+body { width: 100%; margin: 0; overflow-x: clip; background: var(--color-cream); color: var(--color-ink); font-weight: 400; }
+main { width: 100%; min-width: 0; }
+main > section { width: 100%; min-width: 0; }
+h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 300; }
+h1 em, h2 em, h3 em, h4 em { font-family: var(--font-serif); font-weight: 300; font-style: italic; }
+.font-accent { font-family: var(--font-accent); font-weight: 300; font-style: normal; line-height: 0.7em; }
+.uppercase { font-family: var(--font-label); font-weight: 300; }
+::selection { background: var(--color-accent-soft); color: var(--color-ink); }
+details > summary::-webkit-details-marker { display: none; }
+
+.image-tone {
+  isolation: isolate;
+}
+
+.image-tone::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: var(--color-primary);
+  content: "";
+  mix-blend-mode: multiply;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+@media (min-width: 80rem) {
+  #primary-navigation a:not([href="#contact"]) {
+    position: relative;
+  }
+
+  #primary-navigation a:not([href="#contact"])::after {
+    position: absolute;
+    right: 0;
+    bottom: -0.2rem;
+    left: 0;
+    height: 1px;
+    background: var(--color-ink);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 500ms ease;
+  }
+
+  #primary-navigation a:not([href="#contact"]):hover::after {
+    transform: scaleX(1);
+  }
+}

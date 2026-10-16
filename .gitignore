@@ -1,0 +1,46 @@
+# Node dependencies
+node_modules/
+
+# Build output
+.next/
+dist/
+build/
+
+# Local env files
+.env*
+!.env.example
+!.env.*.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Bundler cache
+.cache/
+
+# TypeScript
+*.tsbuildinfo
+
+# Coverage
+coverage/
+.nyc_output/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE and editors
+.idea/
+.vscode/
+!.vscode/extensions.json
+
+# Misc
+.pnp/
+.pnp.js
+*.tgz
+*.local
